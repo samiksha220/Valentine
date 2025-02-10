@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<head>
+   <title>Valentine's Quiz</title>
+   <style>
+      body { font-family: Arial, sans-serif; 
+         background-image:url(heartttt.jpg);
+          }
+      
+      .quiz-container { width: 60%; margin: 0 auto; padding: 20px; background-color: rgba(215, 59, 71, 0.5); font-size: larger;}
+   
+      h1 { text-align: center; }
+      .questions { margin-bottom: 20px; }
+      .submit { text-align: center;}
+      
+   </style>
+</head>
+<body>
+   <div class="quiz-container">
+      <h1>Let's test you!</h1>
+      <form id="quizForm">
+         <div class="questions">
+            <label for="q1"><b>1. Which is my fav animal?</b></label><br>
+            <input type="radio" name="q1" value="Cat"> Cat<br>
+            <input type="radio" name="q1" value="Dog"> Dog<br>
+            <input type="radio" name="q1" value="Panda"> Panda<br>
+         </div>
+         <div class="questions">
+            <label for="q2"><b>2. Which is my fav color?</b></label><br>
+            <input type="radio" name="q2" value="Red"> Red<br>
+            <input type="radio" name="q2" value="Blue"> Blue<br>
+            <input type="radio" name="q2" value="Yellow"> Yellow<br>
+         </div>
+         <div class="questions">
+            <label for="q3"><b>3. What was my first pet?</b></label><br>
+            <input type="radio" name="q3" value="cat"> cat<br>
+            <input type="radio" name="q3" value="dog"> dog<br>
+            <input type="radio" name="q3" value="bird"> bird<br>
+         </div>
+         <div class="questions">
+            <label for="q4"><b>4. Do I prefer mountains or beaches?</b></label><br>
+            <input type="radio" name="q4" value="mountains"> mountains<br>
+            <input type="radio" name="q4" value="beaches"> beaches<br>
+         </div>
+         <div class="questions">
+            <label for="q5"><b>5. What describes me the best?</b></label><br>
+            <input type="radio" name="q5" value="sleepyhead"> sleepyhead<br>
+            <input type="radio" name="q5" value="nerdy"> nerdy<br>
+            <input type="radio" name="q5" value="adventurous"> adventurous<br>
+         </div>
+         <div class="questions">
+            <label for="q6"><b>6. Am I a foodie or a picky eater?</b></label><br>
+            <input type="radio" name="q6" value="foodie"> foodie<br>
+            <input type="radio" name="q6" value="picky eater"> picky eater<br>
+         </div>
+         <div class="questions">
+            <label for="q7"><b>7. What's my fav icecream flavour?</b></label><br>
+            <input type="radio" name="q7" value="vanilla"> vanilla<br>
+            <input type="radio" name="q7" value="black current"> black current<br>
+            <input type="radio" name="q7" value="chocolate"> chocolate<br>
+         </div>
+         <div class="submit">
+            <button type="button" onclick="checkAnswers()">Submit</button>
+         </div>
+      </form>
+      <div id="result"></div>
+      <p id="demo"></p>
+      </div>
+   
+   
+
+   <script>
+      function checkAnswers() {
+         let score = 0;
+         const q1 = document.querySelector('input[name="q1"]:checked');
+         const q2 = document.querySelector('input[name="q2"]:checked');
+         const q3 = document.querySelector('input[name="q3"]:checked');
+         const q4 = document.querySelector('input[name="q4"]:checked');
+         const q5 = document.querySelector('input[name="q5"]:checked');
+         const q6 = document.querySelector('input[name="q6"]:checked');
+         const q7 = document.querySelector('input[name="q7"]:checked');
+         if (q1 && q1.value === 'Panda') score++;
+         if (q2 && q2.value === 'Blue') score++;
+         if (q3 && q3.value === 'cat') score++;
+         if (q4 && q4.value === 'beaches') score++;
+         if (q5 && q5.value === 'sleepyhead') score++;
+         if (q6 && q6.value === 'picky eater') score++;
+         if (q7 && q7.value === 'chocolate') score++;
+
+         let date;
+  if (score >= 3) {
+    date = "Congratulations! You get to go on a date with me!!!";
+  } else {
+    date = "You need to know me more!";
+  }
+document.getElementById("demo").innerHTML = date;
+         const result = document.getElementById('result');
+         result.innerHTML = `You got ${score} out of 7 correct!`;
+      }
+   </script>
+</body>
+</html>

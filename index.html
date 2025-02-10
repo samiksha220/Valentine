@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Will you be my valentine?</title>
+    
+    <style>
+        body {
+            background-image: url(bg1.jpg);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+        }
+
+        h1 {
+            font-style: italic;
+            font-size: 50px;
+            text-align: center;
+            text-shadow: 3px 3px 3px grey;
+        }
+
+        .button {
+            background-color: #F7CFD8;
+            font-style: italic;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            height: 60px;
+            width: 200px;
+            margin-right: 10px;
+            border-radius: 5px;
+            animation: yess 1s linear infinite;
+            display: inline-block;
+            text-align: center;
+            line-height: 60px;
+        }
+
+        @keyframes yess {
+            50% { transform: scale(0.8, 0.8); }
+        }
+
+        .button:hover {
+            transition: all 0.3s ease-in;
+            box-shadow: 5px 5px 5px grey;
+        }
+
+        .button a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .button:hover {
+            background-color: tomato;
+        }
+
+        .quiz h1 {
+            text-align: center;
+            font-size: 50px;
+        }
+
+        .image {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 50px;
+        }
+
+        .image img {
+            padding: 10px;
+            transition: transform 1s ease;
+        }
+
+        .image img:hover {
+            transform: scale(1.1);
+        }
+
+        span {
+            position: absolute;
+            pointer-events: none;
+            filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.5));
+            animation: fade 1s linear infinite;
+        }
+
+        @keyframes fade {
+            0%, 100% { opacity: 0; }
+            20%, 80% { opacity: 1; }
+        }
+
+        span::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url(heart.png);
+            background-size: cover;
+            animation: moveShape 1s linear infinite;
+        }
+
+        @keyframes moveShape {
+            0% { transform: translate(0) rotate(0deg); }
+            100% { transform: translate(300px) rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+   <center>
+      <h1>Would you like to invest in me and take 100% equity in my life in exchange for an unlimited lifetime supply of unconditional love?</h1>
+      <button class="button"><a href="new.html">Yesss!</a></button>
+      <button class="button"><a href="new.html">You have no other option!</a></button>
+      <br><br>
+      <a href="love letter 2.html"><img src="love-letter-letter.gif" alt="Love Letter"></a>
+
+      <div class="quiz">
+         <h1>How much do you know me? <br>Are you ready for a quiz?</h1><br>
+         <button class="button"><a href="quiz1.html">Start!</a></button>
+      </div>
+
+      <br><br>
+      <div class="image">
+         <h1>Dedicated to you:</h1>
+         <img src="IMG_20250209_160330.jpg" alt="Image 1" height="400px">
+         <img src="IMG_20250209_160259.jpg" alt="Image 2" height="400px">
+         <img src="IMG_20250209_160236.jpg" alt="Image 3" height="400px">
+         <img src="IMG_20250209_160207.jpg" alt="Image 4" height="400px">
+         <br>
+         <img src="IMG_20250209_154610_986.jpg" alt="Image 5" height="400px">
+         <img src="IMG_20250209_154600_307.jpg" alt="Image 6" height="400px">
+         <img src="IMG_20250209_154554_320.jpg" alt="Image 7" height="400px">
+      </div>
+   </center>
+
+   <script>
+      document.addEventListener('mousemove', function(e) {
+         let body = document.querySelector('body');
+         let heart = document.createElement('span');
+         let x = e.offsetX;
+         let y = e.offsetY;
+         heart.style.left = x + 'px';
+         heart.style.top = y + 'px';
+
+         let size = Math.random() * 80;
+         heart.style.width = 20 + size + 'px';
+         heart.style.height = 20 + size + 'px';
+
+         let transformValue = Math.random() * 360;
+         heart.style.transform = 'rotate(' + transformValue + 'deg)';
+
+         body.appendChild(heart);
+         setTimeout(function() {
+            heart.remove();
+         }, 1000);
+      });
+   </script>
+</body>
+</html>
